@@ -16,7 +16,7 @@ Everything lives in `index.html`: inline `<style>` for the dark-terminal theme, 
 2. **State initialisation** — `initGame()` resets all mutable state: player position, invader grid (5 rows × 11 columns), 4 bunkers, projectile arrays, mystery-ship timer, score/lives/wave.
 3. **Update functions** — one per subsystem (`updatePlayer`, `updateInvaders`, `updateProjectiles`, `updateBunkers`, `updateMysteryShip`, `updateExplosion`). Called each frame in order.
 4. **Render functions** — `drawSprite` renders a pixel-art sprite at a given scale; higher-level draw calls assemble the HUD (score, wave, lives, hi-score) and all game objects.
-5. **Game loop** — `requestAnimationFrame`-based loop that calls update then render each tick.
+5. **Game loop** — `requestAnimationFrame`-based loop; game logic runs at a fixed 60 updates per second (time accumulator), then render each frame.
 6. **Input** — `keydown`/`keyup` listeners write into a `keys` object; the update functions read from it.
 
 ### Key design facts
